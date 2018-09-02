@@ -11,16 +11,21 @@
 }
 else
 {
+    <div class="form-group">
+        @Html.ActionLink("New Movie", "New", "Movies", new { @class = "btn btn-primary" })
+    </div>
     <table class="table table-bordered">
         <thead>
             <tr>
                 <th>Movie</th>
+                <th>Discount Rate</th>
             </tr>
         </thead>
         @foreach (var movie in Model)
         {
         <tr>
-            <td>@movie.Name</td>
+            <td>@Html.ActionLink(movie.Name, "Edit", "Movies", new { id = movie.Id }, null)</td>
+            <td>@movie.Genre.Name</td>
         </tr>
         }
     </table>
